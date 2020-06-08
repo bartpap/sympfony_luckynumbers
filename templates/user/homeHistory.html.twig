@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HOME{% endblock %}
+
+{% block javascripts %}
+
+
+<style>
+    button{
+        width: 300px;
+        height: 50px;
+        margin: 10px;
+        font-size: 20px;
+        font-family:Helvetica;
+        -webkit-box-shadow: 10px 10px 25px -9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 25px -9px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 25px -9px rgba(0,0,0,0.75);
+    }
+
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+    
+    .wrapper { 
+        text-align: center;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 10%;
+        font-family:Helvetica;
+        width: 30%; 
+        height: 50%;
+        padding: 5%;
+        background-color: grey;
+        border: 1px solid #000;
+        border-radius: 10px;
+        -webkit-box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+        -moz-box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+        box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+    }
+    
+    .p{
+        font-size:10px;
+        font-family:Helvetica;
+    }
+
+    .back{
+        position: fixed;
+        left: 10px;
+        top: 0;
+        width:120px;
+        height:40px;
+        font-size: 20px;
+        padding: 0;
+        margin: 10;
+    }
+
+    .los{
+        position: fixed;
+        left: 10px;
+        top: 50px;
+        width:120px;
+        height:40px;
+        font-size: 20px;
+        padding: 0;
+        margin: 10;
+    }
+
+    hr{
+        height: 1px;
+        background-color: #000;
+        border: none;
+    }
+
+</style>
+
+{% endblock %}
+{% block body %}
+
+<div class="wrapper">
+    
+<h1>Twoje szczesliwe numerki</h1>
+<hr>
+{% for number in luckyNumbers %}
+    <h3>{{ number.luckyNumber }}</h3> <p>  {{ number.createAt|format_datetime(locale='pl') }}</p>
+{% endfor %}
+    
+</div>
+<a href= "{{ url("logout") }}">
+    <button class="back">Wyloguj</button>
+</a>
+<a href= "{{ url("home") }}">
+    <button class="los">Losuj nowy</button>
+</a>
+{% endblock %}

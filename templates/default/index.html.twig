@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lucky Number{% endblock %}
+
+{% block javascripts %}
+<style>
+    button{
+        width: 300px;
+        height: 50px;
+        margin: 10px;
+        font-size: 20px;
+        font-family:Helvetica;
+        -webkit-box-shadow: 10px 10px 25px -9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 25px -9px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 25px -9px rgba(0,0,0,0.75);
+    }
+
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+
+    .wrapper { 
+        text-align: center;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 10%;
+        font-family:Helvetica;
+        width: 30%; 
+        height: 50%;
+        padding: 5%;
+        background-color: grey;
+        border: 1px solid #000;
+        border-radius: 10px;
+        -webkit-box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+        -moz-box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+        box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+    }
+    
+    .p{
+        font-size:10px;
+        color:#000;
+    }
+</style>
+
+{% endblock %}
+{% block body %}
+
+<div class="wrapper">
+    <h1>Lucky Numbers</h1>
+    
+    <p><a href= "{{ url("login") }}">
+    <button>Zaloguj sie</button>
+    </a> <br>
+    
+    <a href= "{{ url("register") }}">
+    <button>Zarejestruj sie</button>
+    </a>
+</div>
+
+{% endblock %}

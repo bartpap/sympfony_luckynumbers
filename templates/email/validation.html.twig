@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+<style>
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+    
+    .wrapper { 
+        text-align: center;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 10%;
+        font-family:Helvetica;
+        width: 30%; 
+        height: 50%;
+        padding: 5%;
+        background-color: grey;
+        border: 1px solid #000;
+        border-radius: 10px;
+        -webkit-box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+        -moz-box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+        box-shadow: 6px 9px 25px 6px rgba(0,0,0,0.75);
+    }
+
+</style>
+
+{% endblock %}
+{% block body %}
+
+<div class="wrapper">
+<h3>Ostatni krok rejestracji!</h3>
+<p>
+Czesc {{name}}! Aby dokończyć rejestracje wystarczy ze aktywujesz konto linkiem poniej. 
+</p>
+<br><br>
+<div class="link">
+<b>
+<a href="{{ url("validate") }}?token={{ token }}">{{ url("validate") }}?token={{ token }}</a>
+</b>
+</div>
+<br><br>
+
+Zespół Lucky Numbers<br>
+Pozdrawia
+</div>
+{% endblock %}

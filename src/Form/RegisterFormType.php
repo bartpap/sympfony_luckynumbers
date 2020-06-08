@@ -18,18 +18,18 @@ class RegisterFormType extends AbstractType
     {
         $builder
             ->add('name' ,TextType::class, [
-                'label' => 'Imie',
+                'label' => 'Imię',
             ])
-            ->add('email', TextType::class,[
+            ->add('email', EmailType::class,[
                 'label' => 'E-mail',
                 ])
             ->add('password', RepeatedType::class,[
                 'type' => PasswordType::class,
-                'first_options' => array('label' => 'Haslo'),
-                'second_options' => array('label' => 'Powtórz haslo'),
+                'first_options' => array('label' => 'Hasło'),
+                'second_options' => array('label' => 'Powtórz hasło'),
                 ])
             ->add('button', SubmitType::class,[
-                'label' => 'Zarejestruj sie',
+                'label' => 'Zarejestruj się',
                 ])
         ;
     }

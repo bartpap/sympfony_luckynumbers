@@ -22,18 +22,6 @@ class UserService extends AbstractController
         $this->mailer = $mailer;
     }
 
-    public function addLuckyNumberToUser(User $user, LuckyNumbers $lu)
-    {
-        $enity = $this->getDoctrine()->getManager();
-
-        $user->addLuckyNumber($lu);
-
-        $enity->persist($user);
-        $enity->persist($lu);
-        $enity->flush();
-        
-    }
-
     public function createLuckyNumber(User $us)
     {
         $enity = $this->getDoctrine()->getManager();
@@ -52,7 +40,8 @@ class UserService extends AbstractController
 
     public function createUser( User $user )
     {
-        if(($this->userRepository->findOneBy(['email' => $user->getEmail()])) == null){
+        if(($this->userRepository->findOneBy(['email' => $user->getEmail()])) == null)
+        {
             $enity = $this->getDoctrine()->getManager();
             
             $us = new User;
@@ -66,19 +55,21 @@ class UserService extends AbstractController
 
             return true;
         }
-        else{
-            return false;
-        }
+        
+        return false;
     }
 
-    public function getUserByEmail( String $email ){
-        if( $us = $this->userRepository->findOneBy(['email' => $email]) ){
+    public function getUserByEmail( String $email )
+    {
+        if( $us = $this->userRepository->findOneBy(['email' => $email]) )
+        {
             return $us;
         }
         return null;
     }
 
-    public function active($id){
+    public function active($id)
+    {
         if(($us = $this->userRepository->findOneBy(['id' => $id])) != null)
         {
             if( $us->getRoles()[0] == "NOT_VERIFY" )
@@ -96,8 +87,10 @@ class UserService extends AbstractController
         return false;
     }
     
-    public function validMailSend( User $user){
+    public function validMailSend( User $user)
+    {
         $token = $this->jwtCoder(['id' => $user->getId()]);
+
         $message = (new Swift_Message('Hello Email'))
         ->setFrom('noreply@example.com')
         ->setTo($user->getEmail())

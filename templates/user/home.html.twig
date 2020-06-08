@@ -63,6 +63,14 @@
         margin: 10;
     }
 
+    .los{
+        width:120px;
+        height:40px;
+        font-size: 20px;
+        padding: 0;
+        margin: 10;
+    }
+
     hr{
         height: 1px;
         background-color: #000;
@@ -77,7 +85,9 @@
     <h1>Witaj {{ name }}</h1>
     <hr>
     <p>Twoj szczśliwy numer to ...</p> <h3>{{ luckyNumber }}</h3>
-    
+    <a href= "{{ url("home") }}">
+    <button class="los">Losuj nowy</button>
+    </a>
 </div>
 <a href= "{{ url("logout") }}">
     <button class="back">Wyloguj</button>

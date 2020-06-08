@@ -29,7 +29,7 @@ class RegisterFormType extends AbstractType
                 'second_options' => array('label' => 'Powtórz haslo'),
                 ])
             ->add('button', SubmitType::class,[
-                'label' => 'Zarejestruj',
+                'label' => 'Zarejestruj sie',
                 ])
         ;
     }

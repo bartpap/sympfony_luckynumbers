@@ -42,7 +42,6 @@ class DefaultController extends AbstractController
      */
     public function index(): ?Response
     {
-        return $this->render('inform/validCompleted.html.twig');
         return $this->render('default/index.html.twig');
     }
     
